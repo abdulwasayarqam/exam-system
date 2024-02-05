@@ -13,8 +13,8 @@ class PaperPolicy
     {
         //
     }
-    public function view($user)
+    public function view(User $user)
     {
-        return $user->email === 'teacher@gmail.com';
+        return $user->role === 'teacher';
     }
 }
