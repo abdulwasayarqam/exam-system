@@ -6,6 +6,7 @@
     <div class="container">
         <h2>Create Paper</h2>
         {!! Form::open(['route' => 'questions.store']) !!}
+        @csrf <!-- Add CSRF token -->
 
         <div class="form-group">
             {!! Form::label('subject_id', 'Subject:') !!}
@@ -16,11 +17,6 @@
             {!! Form::label('paper_id', 'Paper:') !!}
             {!! Form::select('paper_id', $papers, null, ['class' => 'form-control', 'placeholder' => 'Select a Paper']) !!}
         </div>
-
-{{--        <div class="form-group">--}}
-{{--            {!! Form::label('title', 'Paper Title:') !!}--}}
-{{--            {!! Form::text('title', null, ['class' => 'form-control']) !!}--}}
-{{--        </div>--}}
 
         <!-- HTML Table for Questions -->
         <h3>Questions</h3>
@@ -57,7 +53,6 @@
         </table>
 
         {!! Form::submit('Create Paper', ['class' => 'btn btn-primary']) !!}
-
 
         {!! Form::hidden('num_questions', 1, ['id' => 'num-questions']) !!}
 
