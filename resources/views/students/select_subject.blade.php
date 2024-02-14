@@ -12,6 +12,7 @@
             {!! Form::label('subject_id', 'Subject:') !!}
             {!! Form::select('subject_id', $subjects, null, ['class' => 'form-control']) !!}
         </div>
+        <br>
         {!! Form::submit('View Questions', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
     </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\TeacherController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 /*
@@ -50,7 +51,7 @@ Route::post('/papers/store', [PaperController::class, 'store'])->name('papers.st
 
 Route::middleware(['can:access-questions'])->group(function () {
 Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create');
-Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
+Route::any('/questions', [QuestionController::class, 'store'])->name('questions.store');
 
 
 
@@ -68,6 +69,4 @@ Route::any('/student/view-questions', [StudentController::class, 'viewQuestions'
 
 
 Route::post('/answers/store', [AnswerController::class, 'store'])->name('answers.store');
-
-
 
